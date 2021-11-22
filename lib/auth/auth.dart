@@ -4,7 +4,7 @@ import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../bottomNavBar/bottom_nav_bar.dart';
+import '../CustomBottomNavBar/custom_bottom_nav_bar.dart';
 import '../models/user_model.dart';
 import '../providers/auth_provider.dart';
 

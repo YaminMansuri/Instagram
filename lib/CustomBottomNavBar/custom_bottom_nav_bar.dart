@@ -1,15 +1,13 @@
 import "package:flutter/material.dart";
-import 'package:flutter/services.dart';
-import 'package:instagram/CustomBottomNavBar/custom_animated_bottom_bar_try.dart';
-// import 'package:instagram/CustomBottomNavBar/custom_animated_bottom_bar.dart';
 
+import '../CustomBottomNavBar/custom_animated_bottom_bar_try.dart';
 import '../screens/activity_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/search_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
-  // static String route = "/bottomNavBar";
+  static String route = "/bottomNavBar";
   static ScrollController controller = ScrollController();
 
   @override
@@ -58,6 +56,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         controller: _pageController,
         children: _screens,
         onPageChanged: _onPageChanged,
+        physics: NeverScrollableScrollPhysics(),
       ),
 
       // body: IndexedStack(

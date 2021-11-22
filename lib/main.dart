@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/screens/post_image_screen.dart';
-import 'package:instagram/screens/profile_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// import 'bottomNavBar/bottom_nav_bar.dart';
-import 'CustomBottomNavBar/custom_bottom_nav_bar.dart';
+import '../CustomBottomNavBar/custom_bottom_nav_bar.dart';
+import '../screens/post_image_screen.dart';
+import '../screens/profile_screen.dart';
 import 'auth/auth.dart';
 import 'providers/auth_provider.dart';
 import 'providers/post_provider.dart';
@@ -58,7 +57,7 @@ class _MyAppState extends State<MyApp> {
         home: _screen,
         routes: {
           Auth.route: (_) => Auth(),
-          // BottomNavBar.route: (_) => BottomNavBar(),
+          BottomNavBar.route: (_) => BottomNavBar(),
           PostImageScreen.route: (_) => PostImageScreen(),
           ProfileScreen.route: (_) => ProfileScreen(),
         },
