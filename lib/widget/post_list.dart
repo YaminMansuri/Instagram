@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import "package:instagram/CustomBottomNavBar/custom_bottom_nav_bar.dart";
 import 'package:instagram/providers/post_provider.dart';
-import 'package:instagram/widget/post_widget_try.dart';
+import 'package:instagram/widget/post_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

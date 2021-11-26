@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
 
-import '../CustomBottomNavBar/custom_animated_bottom_bar_try.dart';
 import '../screens/activity_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/search_screen.dart';
+import 'custom_animated_bottom_bar.dart';
 
 class BottomNavBar extends StatefulWidget {
   static String route = "/bottomNavBar";

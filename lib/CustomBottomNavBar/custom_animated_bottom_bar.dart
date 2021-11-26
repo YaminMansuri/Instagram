@@ -10,7 +10,7 @@ class CustomAnimatedBottomBar extends StatelessWidget {
     this.backgroundColor,
     this.itemCornerRadius = 50,
     this.containerHeight = 56,
-    this.animationDuration = const Duration(milliseconds: 270),
+    this.animationDuration = const Duration(milliseconds: 450),
     this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
     required this.items,
     required this.onItemSelected,
@@ -35,6 +35,7 @@ class CustomAnimatedBottomBar extends StatelessWidget {
     final bgColor = backgroundColor ?? Theme.of(context).bottomAppBarColor;
 
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         color: bgColor,
         boxShadow: [
@@ -104,47 +105,34 @@ class _ItemWidget extends StatelessWidget {
             isSelected ? item.activeColor!.withOpacity(0.2) : backgroundColor,
         borderRadius: BorderRadius.circular(itemCornerRadius),
       ),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        physics: NeverScrollableScrollPhysics(),
-        child: Container(
-          width: isSelected ? 130 : 50,
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              IconTheme(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 10),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: IconTheme(
                 data: IconThemeData(
-                  size: iconSize,
-                  color: isSelected
-                      ? item.activeColor!.withOpacity(1)
-                      : item.inactiveColor
-                  //  == null
-                  //     ? item.activeColor
-                  //     : item.inactiveColor
-                  ,
+                  color: isSelected ? item.activeColor : item.inactiveColor,
                 ),
                 child: item.icon,
               ),
-              if (isSelected)
-                Expanded(
-                  child: Container(
-                    // padding: EdgeInsets.symmetric(horizontal: 4),
-                    child: DefaultTextStyle.merge(
-                      style: TextStyle(
-                        color: item.activeColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      maxLines: 1,
-                      textAlign: item.textAlign,
-                      child: item.title,
-                    ),
+            ),
+            if (isSelected)
+              Expanded(
+                flex: 1,
+                child: Text(
+                  item.title,
+                  maxLines: 1,
+                  style: TextStyle(
+                    color: item.activeColor,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
       ),
     );
@@ -161,7 +149,7 @@ class BottomNavyBarItem {
   });
 
   final Widget icon;
-  final Widget title;
+  final dynamic title;
   final Color? activeColor;
   final Color? inactiveColor;
   final TextAlign? textAlign;
